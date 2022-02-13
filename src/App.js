@@ -6,7 +6,7 @@ function App() {
   return (
     <Container maxWidth="md">
       <Typography varient="h2" align="center">
-        Restaurant App
+        Restaurant App New
       </Typography>
       <Order />
     </Container>
