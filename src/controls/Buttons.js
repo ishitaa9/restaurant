@@ -1,28 +1,28 @@
-import React from 'react';
-import { Button as MuiButton, makeStyles } from '@mui/styles';
+import React from "react";
+import { Button as MuiButton, makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        margin: theme.spacing(1),
-        '& .MuiButton-label': {
-            textTranform : 'none'
-        }
-    }
-}))
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(1),
+    "& .MuiButton-label": {
+      textTranform: "none",
+    },
+  },
+}));
 
 export default function Button(props) {
+  const { children, color, variant, onClick, className, ...other } = props;
+  const classes = useStyles();
 
-    const { children, color, variant, onClick, className, ...other } = props;
-    const classes = useStyles();
-
-    return ( 
-        <MuiButton 
-        className={classes.root + ' ' + (className || '')}
-        variant={variant || "contained"}
-        color={color || "default"}
-        onClick={onClick}
-        {...other}>
-        {children}
-        </MuiButton>
-    )
+  return (
+    <MuiButton
+      className={classes.root + " " + (className || "")}
+      variant={variant || "contained"}
+      color={color || "default"}
+      onClick={onClick}
+      {...other}
+    >
+      {children}
+    </MuiButton>
+  );
 }

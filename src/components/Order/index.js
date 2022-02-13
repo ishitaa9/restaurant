@@ -1,37 +1,29 @@
-import React from 'react'
-import OrderForm from './OrderForm'
-import { useForm } from '../../Hooks/useForm';
+import React from "react";
+import OrderForm from "./OrderForm";
+import { useForm } from "../../Hooks/useForm";
 
-const generateOrderNumber = () => Math.floor(100000 + Math.random() * 900000).toString();
+const generateOrderNumber = () =>
+  Math.floor(100000 + Math.random() * 900000).toString();
 
 const getFreshModelObject = () => ({
   orderMasterId: 0,
   orderNumber: generateOrderNumber(),
   customerId: 0,
-  pMethod: 'none',
+  pMethod: "none",
   gTotal: 0,
-  deletedOrderItemIds: '',
-  orderDetails: []
-})
+  deletedOrderItemIds: "",
+  orderDetails: [],
+});
 
 export default function Order() {
-
-  const { 
+  const {
     values,
     setValues,
     errors,
     setErrors,
     handleInputChange,
-    resetFormControls
-  } = useForm(getFreshModelObject)
+    resetFormControls,
+  } = useForm(getFreshModelObject);
 
-  return (
-    <OrderForm
-    { ...{values, errors, handleInputChange}}
-
-    />
-
-    
-  )
+  return <OrderForm {...{ values, errors, handleInputChange }} />;
 }
-
